@@ -1,0 +1,15 @@
+{
+  "teas": [],
+  "extras": [],
+  "deco": [
+    {
+      "id": "frutero-mszagmln",
+      "sala": "salon",
+      "pieza": "frutero",
+      "x": -1.9,
+      "z": -2.2,
+      "rotY": 0,
+      "escala": 1
+    }
+  ]
+}

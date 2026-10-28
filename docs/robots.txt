@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /
+
+Sitemap: https://arku75.github.io/petra-tea-shop-demo/sitemap.xml
