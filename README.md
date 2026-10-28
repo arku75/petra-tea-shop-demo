@@ -14,6 +14,8 @@ A public portfolio edition of the latest Petra + Erik tea-shop project: a warm, 
 - Complete a simulated checkout and view a locally generated demonstration receipt.
 - Try the contact forms with fictional details. No message is sent or stored.
 
+The 3D rooms require a browser with **WebGL 2** available. If graphics are disabled or the renderer fails, the demo shows an approved preview of the original room and links to the fully interactive classic storefront. Language selection, products, and the shared basket remain available through that storefront. No browser graphics settings need to be changed to try the classic demo.
+
 ## A demonstration of the client project
 
 This repository publishes one current edition of the project, adapted from its latest working source. It does not contain old ZIP snapshots, private working notes, editor history, client credentials, production settings, or customer records.

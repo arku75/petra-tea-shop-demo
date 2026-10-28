@@ -102,7 +102,7 @@ export default function CestaClasica() {
               <button className="btn-tinta w-full py-3 mt-3" onClick={() => setConfirmando(true)}>💳 {T.cl.pagarTarjeta}</button>
             ) : (
               <button className="btn-tinta w-full py-3 mt-3 bg-[var(--granate)]" disabled={procesando} onClick={pagar}>
-                {procesando ? "…" : T.cl.pagarTarjeta}
+                {procesando ? "…" : T.cl.confirmarPedidoDemo}
               </button>
             )}
             <p className="text-[10px] opacity-70 mt-2 leading-snug">{T.cl.demoAviso}</p>

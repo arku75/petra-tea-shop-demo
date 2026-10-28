@@ -156,6 +156,7 @@ export const T = {
     cupon: "¿Tienes cupón?", cuponEtiqueta: "Cupón", emailRecibo: "Email ficticio (opcional; no se guarda)", aplicar: "Aplicar", subtotal: "Subtotal", envio: "Envío",
     envioGratis: "Envío gratis desde 50 €", total: "Total", pagarTarjeta: "Simular pedido",
     demoAviso: "Demostración local: no se realizan cobros, pedidos ni envíos. No introduzcas datos personales.",
+    confirmarPedidoDemo: "Confirmar pedido de demo",
     seguirComprando: "Seguir comprando",
     visita3d: "Visita la tienda en 3D",
     pieLegal: "Lo legal",

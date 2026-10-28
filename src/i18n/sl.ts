@@ -155,6 +155,7 @@ export const T_SL = {
     cupon: "Imaš kupon?", cuponEtiqueta: "Kupon", emailRecibo: "Izmišljen e-naslov (neobvezno; se ne shrani)", aplicar: "Uporabi", subtotal: "Vmesni znesek", envio: "Dostava",
     envioGratis: "Brezplačna dostava od 50 €", total: "Skupaj", pagarTarjeta: "Preizkusi naročilo",
     demoAviso: "Lokalna predstavitev: brez pravih plačil, naročil ali dostav. Ne vnašajte osebnih podatkov.",
+    confirmarPedidoDemo: "Potrdi demo naročilo",
     seguirComprando: "Nadaljuj z brskanjem",
     visita3d: "Obišči trgovino v 3D",
     pieLegal: "Pravno",

@@ -236,7 +236,7 @@ export default function CartScene() {
                 <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" aria-label={T.cl.emailRecibo} placeholder={T.cl.emailRecibo} className="w-full px-3 py-2 mt-3 rounded-md border border-[var(--madera)]/40 bg-[var(--crema)] text-sm" />
                 <div className="mt-4 flex gap-2">
                   <button className="btn-miel flex-1 px-4 py-2 text-sm" onClick={() => confirmPay(paying)}>
-                    {T.cl.pagarTarjeta} · {eur(total)}
+                    {T.cl.confirmarPedidoDemo} · {eur(total)}
                   </button>
                   <button className="sign px-3 py-2 text-xs" onClick={() => setPaying(null)}>Cancelar</button>
                 </div>

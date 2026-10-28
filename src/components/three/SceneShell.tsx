@@ -11,6 +11,7 @@ import Overrides from "./Overrides";
 import { QualityContext, detectQuality, qualityOverride, effectiveDpr, SHADOW_MAP, DUST, type Quality } from "@/lib/quality";
 import { initMaterials } from "@/lib/materials";
 import Realismo from "./Realismo";
+import SceneFallback, { SceneErrorBoundary } from "./SceneFallback";
 
 /** Dirección isométrica fija de la cámara */
 export const ISO_DIR = new THREE.Vector3(1, 0.82, 1).normalize();
@@ -132,11 +133,28 @@ export default function SceneShell({
   visualProfile?: VisualProfile;
 }) {
   const [q, setQ] = useState<Quality>("mid");
+  const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null);
   const declined = useRef(false);
   useEffect(() => setQ(detectQuality()), []);
   useEffect(() => () => { document.body.style.cursor = "auto"; }, []);
+  useEffect(() => {
+    // Three.js r185 needs WebGL 2. Probe before mounting Canvas so disabled
+    // graphics cannot leave visitors with a blank room and inaccessible content.
+    try {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("webgl2", { antialias: false });
+      setWebglAvailable(Boolean(context));
+      context?.getExtension("WEBGL_lose_context")?.loseContext();
+    } catch { setWebglAvailable(false); }
+    const failed = () => setWebglAvailable(false);
+    window.addEventListener("webglcontextcreationerror", failed, true);
+    return () => window.removeEventListener("webglcontextcreationerror", failed, true);
+  }, []);
+
+  if (webglAvailable !== true) return <SceneFallback checking={webglAvailable === null} />;
 
   return (
+    <SceneErrorBoundary>
     <div className="fixed inset-0" aria-label={ariaLabel} role="img">
       <QualityContext.Provider value={q}>
       <Canvas
@@ -145,6 +163,7 @@ export default function SceneShell({
         dpr={effectiveDpr(q)}
         gl={{ antialias: false }}
         onCreated={({ gl, scene, camera }) => {
+          gl.domElement.addEventListener("webglcontextlost", () => setWebglAvailable(false), { once: true });
           initMaterials(gl);
           gl.transmissionResolutionScale = 0.25;
           (window as unknown as { __scene?: THREE.Scene }).__scene = scene;
@@ -204,5 +223,6 @@ export default function SceneShell({
       />
       </QualityContext.Provider>
     </div>
+    </SceneErrorBoundary>
   );
 }

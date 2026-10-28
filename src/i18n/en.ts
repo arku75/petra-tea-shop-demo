@@ -155,6 +155,7 @@ export const T_EN = {
     cupon: "Have a coupon?", cuponEtiqueta: "Coupon", emailRecibo: "Fictional email (optional; not stored)", aplicar: "Apply", subtotal: "Subtotal", envio: "Shipping",
     envioGratis: "Free shipping from €50", total: "Total", pagarTarjeta: "Simulate order",
     demoAviso: "Local demonstration: no charges, real orders, or deliveries. Do not enter personal details.",
+    confirmarPedidoDemo: "Confirm demo order",
     seguirComprando: "Keep browsing",
     visita3d: "Visit the shop in 3D",
     pieLegal: "The legal bit",
